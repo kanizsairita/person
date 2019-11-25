@@ -14,6 +14,7 @@ public class Main {
         sortedPeopleSet.addAll(sortedPeople);
 
 
+        System.out.println("A Chicago-ban élő emberek email-címei:");
         List<Person> chicagoList= Filter.cityFilter("Chicago", sortedPeople);
         for (Person person : chicagoList) {
             System.out.println(person.getEmail());
