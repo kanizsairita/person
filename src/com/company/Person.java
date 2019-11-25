@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Comparator;
 
-public class Person implements Comparator<Person> {
+public class Person implements Comparable<Person>{
 
     private String name;
     private String city;
@@ -26,8 +26,9 @@ public class Person implements Comparator<Person> {
         return email;
     }
 
+
     @Override
-    public int compare(Person p1, Person p2) {
-        return p1.getName().compareTo(p2.getName());
+    public int compareTo(Person person) {
+        return name.compareTo(person.getName());
     }
 }

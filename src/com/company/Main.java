@@ -1,7 +1,7 @@
 package com.company;
 
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
+
 import java.io.FileNotFoundException;
 
 
@@ -9,10 +9,19 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        Set<Person> sortedPeople = new TreeSet<>();
+        List<Person> sortedPeople=Reader.read("src/us-500.csv");
+        Set<Person> sortedPeopleSet=new TreeSet<>();
+        sortedPeopleSet.addAll(sortedPeople);
 
-        sortedPeople.addAll(Reader.read("src/us-500.csv"));
+
+        List<Person> chicagoList= Filter.cityFilter("Chicago", sortedPeople);
+        for (Person person : chicagoList) {
+            System.out.println(person.getEmail());
+        }
 
 
     }
+
+
+
 }
