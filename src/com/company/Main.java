@@ -31,4 +31,17 @@ public class Main {
     }
 
 
+    public static ArrayList<Person> searchPeople(){
+        Scanner sc = new Scanner(System.in);
+        String cityToSearch = sc.next();
+        try{
+            return Filter.cityFilter(cityToSearch, Reader.read("src/us-500.csv"));
+        }catch (Exception e){
+            System.out.println("Nincs adat.");
+            return null;
+        }
+    }
+
+
+
 }
