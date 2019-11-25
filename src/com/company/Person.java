@@ -1,8 +1,8 @@
 package com.company;
 
-import java.util.Objects;
+import java.util.Comparator;
 
-public class Person {
+public class Person implements Comparator<Person> {
 
     private String name;
     private String city;
@@ -26,17 +26,8 @@ public class Person {
         return email;
     }
 
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return name.equals(person.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
+    public int compare(Person p1, Person p2) {
+        return p1.getName().compareTo(p2.getName());
     }
 }
